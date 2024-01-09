@@ -1,0 +1,26 @@
+import tkinter as tk
+import os
+import subprocess
+import webbrowser
+
+
+# Tarayıcıyı kapatmak için bir fonksiyon
+def close_chrome_and_open_youtube():
+    # Chrome'u kapat
+    subprocess.call(["taskkill", "/f", "/im", "chrome.exe"])
+
+    # YouTube'u aç
+    url = "https://www.youtube.com"
+    webbrowser.open(url)
+
+# GUI penceresini oluştur
+root = tk.Tk()
+root.title("Tarayıcı Kontrol Butonu")
+
+# Mavi bir buton oluştur
+button = tk.Button(root, text="Chrome Kapat ve YouTube'u Aç", bg="blue", command=close_chrome_and_open_youtube)
+button.pack()
+
+# Pencereyi görüntüle
+root.geometry("200x100")
+root.mainloop()
